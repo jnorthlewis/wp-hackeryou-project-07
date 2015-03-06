@@ -19,7 +19,6 @@
           </div><!-- .entry-meta -->
 
           <div class="entry-content">
-           <!--<?php echo wp_get_attachment_image( 1 ); ?>--> <!--Q: How do I separate the images from the text?-->
             <?php the_content(); ?>
             <?php wp_link_pages(array(
               'before' => '<div class="page-link"> Pages: ',

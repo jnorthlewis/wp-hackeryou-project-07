@@ -7,7 +7,7 @@
     <?php get_sidebar(); ?>
 
     <div class="content">
-    		<?php get_template_part( 'loop', 'index' );	?>
+    	<?php get_template_part( 'loop', 'index' );	?>
     </div> <!--/.content -->
 
 
