@@ -4,7 +4,9 @@ var sass = require ('gulp-sass');
 //here we define a list of things to happen when we run gulp styles
 gulp.task('styles', function() {
 		gulp.src('wp-content/themes/project_07/style.scss')
-			.pipe(sass()) //have to install this through command line
+			.pipe(sass({
+						errLogToConsole: true
+						}))
 			.pipe(gulp.dest('wp-content/themes/project_07/'))
 	});
 

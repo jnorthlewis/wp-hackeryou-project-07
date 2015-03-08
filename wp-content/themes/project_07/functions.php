@@ -14,7 +14,7 @@ function theme_setup() {
 	set_post_thumbnail_size(120, 90, true);
 	add_image_size('square', 150, 150, true);
 	add_image_size('homeThumb', 500, 500, true);
-	add_image_size('blogPhoto', 700, false);
+	add_image_size('blogPhoto', 855, false);
 
 
 	// Add default posts and comments RSS feed links to head
@@ -24,6 +24,7 @@ function theme_setup() {
 	function add_image_size_to_menu($sizes) {
 	    $sizes['square'] = 'Square';
 	    $sizes['homeThumb'] = 'Home Page Thumb';
+	    $sizes['blogPhoto'] = 'Blog Default';
 	    return $sizes;
 	}
 

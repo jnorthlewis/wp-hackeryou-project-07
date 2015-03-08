@@ -7,8 +7,12 @@
   <title><?php  wp_title('|', true, 'right'); ?></title>
   <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 
+  <!-- FONT AWESOME -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
+
+
   <!-- GOOGLE FONTS -->
-  <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700|Droid+Serif:400,400italic' rel='stylesheet' type='text/css' />
+  <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic' rel='stylesheet' type='text/css' />
 
   <?php // Load our CSS ?>
   <link rel="stylesheet" type="text/css" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
@@ -22,17 +26,28 @@
 <header class="top">
   <div class="container">
     <div class="headerLogoNav clearfix">
-      <h1 class="blogName ">
-        <a href="<?php echo home_url( '/' ); ?>" title="<?php bloginfo( 'name', 'display' ); ?>" rel="home">
-          <?php bloginfo( 'name' ); ?>
-        </a>
-      </h1>
-
+      <div class="blogTitle">
+        <h1 class="blogName">
+          <a href="<?php echo home_url( '/' ); ?>" title="<?php bloginfo( 'name', 'display' ); ?>" rel="home">
+            <?php bloginfo( 'name' ); ?>
+          </a>
+        </h1>
+        <h2 class="blogTagline">
+          <?php bloginfo( 'description' ); ?>
+        </h2>
+      </div><!--END .blogTitle-->
+      
+      <div class="menuButton clearfix">
+        <p>menu</p>
+      </div><!--END .menuButton-->
+      <div class="dropDown">
       <?php wp_nav_menu( array(
         'container' => false,
         'theme_locations' => 'primary'
       )); ?>
-    </div><!--END .innerContainer-->
+      </div><!--END .dropDown-->
+    
+    </div><!--END .headerLogoNav-->
   </div> <!-- /.container -->
 </header><!--/.header-->
 

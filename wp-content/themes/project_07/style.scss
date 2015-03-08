@@ -18,8 +18,16 @@ Author URI: http://hackeryou.com
 ////////////////////////////////// D E F A U L T ////////////////////////////////// 
 //////////////////////////////////////////////////////////////////////////////////
 
-$droidSans: 'Droid Sans', sans-serif;
-$droidSerif: 'Droid Serif', serif;
+$fontFam: 'Lato', sans-serif;
+
+// COLORS
+$orange: #D14412;
+$darkgrey: #3F3F3F;
+$lightgrey: #C6CACE;
+$postborder: 1px solid #f3f3f3;
+
+// HOVER
+$hoverTrans: all 0.2s ease-in-out;
 
 img {
   max-width:100%;
@@ -42,8 +50,7 @@ body {
 
 .content {
   float:left;
-  width:70%;
-  //margin-right: 5%;
+  width: 65%;
 
 }
 
@@ -53,12 +60,11 @@ body {
 
 /* links */
 a {
-  color:#BA209B;
   text-decoration: none;
 }
 
-a:hover {
-  color: #D424B1;
+a:focus {
+  outline: none;
 }
 
 /* paragraphs */
@@ -116,29 +122,44 @@ header.top {
 }
 
 .headerLogoNav {
-  padding: 50px 0;
+  padding: 30px 0 20px 0;
   width: 100%;
   margin: 0 auto;
 
-  border-bottom: 1px solid #ccc;
+  border-bottom: $postborder;
 }
 
-h1.blogName {
-  font-family: $droidSans;
-  font-size: 3rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+div.blogTitle {
   float: left;
-  margin: 0;
+  h1.blogName {
+    margin: 0;
+    a {
+        font-family: $fontFam;
+        font-weight: 700;
+        color: $darkgrey;
+        font-size: 3rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin: 0;
+      }
+  }
+  h2.blogTagline {
+    margin: 5px 0 0 0;
+    font-family: $fontFam;
+    font-weight: 400;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: $darkgrey;
+  }
 }
+
 
 ////////////////////////////////// N A V I G A T I O N ////////////////////////////////// 
 ////////////////////////////////////////////////////////////////////////////////////////
 
   ul.menu {
-    margin:0;
+    margin: 0 0 0 0;
     padding:0;
-
     float: right;
   }
     ul.menu li {
@@ -149,17 +170,49 @@ h1.blogName {
       }
     }
 
-
       ul.menu li a {
-        padding:10px;
-        color: #000;
+        padding: 2px;
+        color: $lightgrey;
 
-        font-family: $droidSans;
+        font-family: $fontFam;
+        font-weight: 400;
+        letter-spacing: 1px;
         line-height: 3;
-        font-size: 1.2rem;
+        font-size: 1.3rem;
         text-transform: uppercase;
-
+        transition: $hoverTrans;
+        &:hover {
+          color: $orange;
+        }
       }
+
+.headerLogoNav {
+  position: relative;
+}
+
+.menuButton {
+  display: inline-block;
+  float: right;
+}
+
+.menuButton p {
+  font-family: $fontFam;
+  color: $darkgrey;
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+  margin-top: 0;
+  text-transform: uppercase;
+  cursor: pointer;
+  //display: inline-block;
+  font-weight: 700;
+}
+
+.dropDown {
+  display: none;
+  position: absolute;
+  right: -4px;
+  top: 50px;
+}
 
 ////////////////////////////////// S I D E B A R ////////////////////////////////// 
 //////////////////////////////////////////////////////////////////////////////////
@@ -174,73 +227,393 @@ h1.blogName {
     margin:0;
     padding:0;
   }
-    .sidebar ul li {
-      list-style: none;
-    }
+
+  .sidebar ul li {
+    list-style: none;
+  }
+
+h3.widget-title {
+  font-size: 1.6rem;
+  font-family: $fontFam;
+  font-weight: 400;
+  text-transform: uppercase;
+  margin-top: 0;
+  letter-spacing: 1px;
+}
+
+//RECENT POSTS
+li.widget-container.widget_recent_entries {
+  margin-bottom: 30px;
+}
+
+li.widget-container.widget_recent_entries ul li a {
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: $lightgrey;
+  transition: $hoverTrans;
+  &:hover {
+    color: $orange;
+  }
+}
+
+//INSTAGRAM
+
+#sb_instagram #sbi_images .sbi_item.sbi_type_image {
+  width: 45%!important;
+  margin-bottom: 20px!important;
+  &:nth-child(2n+1) {
+    margin-right: 10%!important;
+  }
+}
+
+div.sbi_follow_btn {
+  margin-left: 0!important;
+}
+
+#sb_instagram #sbi_load .sbi_follow_btn a {
+  background: #fff;
+  color: $lightgrey;
+  border: 1px solid $lightgrey;
+  border-radius: 0;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  font-weight: 300;
+  line-height: 1.6;
+  padding-top: 10px;
+  transition: $hoverTrans;
+  &:hover {
+    background-color: $darkgrey;
+    border: 1px solid $darkgrey;
+  }
+}
+
+.textwidget #sb_instagram {
+  margin-bottom: 30px;
+}
+
+// SEARCH FIELD
+
+input#s {
+  width: 57%;
+  padding: 7px;
+  margin-bottom: 30px;
+
+  font-size: 1.3rem;
+  font-weight: 300;
+  &:focus {
+    outline: none;
+  }
+}
+
+input.searchsubmit {
+  background: #fff;
+  color: $lightgrey;
+  border: 1px solid $lightgrey;
+  border-radius: 0;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  line-height: 1.9;
+  padding: 6px 4px 3px 4px;
+  width: 32%;
+}
 
 
 ////////////////////////////////// C O N T E N T ////////////////////////////////// 
 //////////////////////////////////////////////////////////////////////////////////
 
+.featImg {
+  margin-bottom: 40px;
+}
+
 h1.entry-title, h2.entry-title {
   text-transform: uppercase;
-  font-size: 2.3rem;
+  font-size: 2.5rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+  font-family: $fontFam;
+}
+
+h2.entry-title a {
+  color: $orange;
 }
 
 .content, .entry-content {
     p {
-        font-family: $droidSans;
-        font-size: 1.3rem;
-        line-height: 1.6; 
+        font-family: $fontFam;
+        font-weight: 300;
+        font-size: 1.4rem;
+        line-height: 1.8; 
       }
     img {
        margin-bottom: 10px;
     }
 }
 
-.content { //Q: HOW DO I SEPARATE EACH POST?
-  padding-top: 30px;
-  border-top: 1px solid #ccc;
-}
-
 //POST-DATE ON INDEX PAGE
-.entry-meta {
+.postDate, .entry-meta.postDate {
   font-size: 1.3rem;
+  text-transform: uppercase;
+  color: $lightgrey;
+  font-family: $fontFam;
+  letter-spacing: 1px;
+  font-weight: 300;
 }
 
 // READ MORE BUTTON
 a.readMore {
   display: block;
-  padding: 20px;
-  background: #ccc;
+  padding: 10px;
+  border: 2px solid $lightgrey;
+  color: $lightgrey;
   width: 20%;
   text-align: center;
-  margin: 0 auto;
+  margin: 20px auto 0 auto;
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 1px;
+  transition: $hoverTrans;
+  &:hover {
+      background-color: $darkgrey;
+      border: 2px solid $darkgrey;
+    }
+}
+
+.blogPostFooter {
+  margin-bottom: 40px;
 }
 
 // CATEGORY BUTTON 
 p.categoryButton {
-  display: inline-block;
-  padding: 10px;
-  background: #ccc;
-  text-align: center;
+    display: inline-block;
+    margin-bottom: 0;
+    float: left;
+  a {
+    border: 1px solid $lightgrey;
+    text-align: center;
+    color: $lightgrey;
+    padding: 11px 20px;
+    font-family: $fontFam;
+    font-weight: 300;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: $hoverTrans;
+    &:hover {
+      background-color: $darkgrey;
+      border: 1px solid $darkgrey;
+    }
+  }
 }
 
-//EDIT BUTTON 
-p.editButton {
+// LIKE BUTTON
+div[id*=wp-ulike-].wpulike {
   display: inline-block;
+  float: right;
+  margin-top: 22px;
+  .counter {
+    a {
+      padding: 11px 20px;
+      background-color: #fff;
+      border: 1px solid $lightgrey;
+      color: $orange!important;
+      letter-spacing: 1px;
+      border-radius: 0;
+
+      color: $lightgrey;
+      font-family: $fontFam;
+      font-weight: 300;
+      font-size: 1rem;
+      text-transform: uppercase;
+      transition: $hoverTrans;
+      &:hover {
+        background-color: $darkgrey;
+        border: 1px solid $darkgrey;
+        color: $lightgrey!important;
+      }
+    }
+
+    span.count-box {
+      font-size: 1.2rem;
+      border-radius: 0;
+      padding-top: 3px;
+      color: $lightgrey;
+      font-weight: 300;
+
+    }
+  }
 }
 
-span.edit-link a {
-  display: inline-block;
-  padding: 10px;
-  background: #ccc;
-  text-align: center;
+//POSTS ON INDEX PAGE
+div.posts {
+  border-bottom: $postborder;
+  margin-bottom: 30px;
 }
 
-article {
-  margin-bottom: 20px;
+// CATEGORY BUTTON ON SINGLE PAGE
+.entry-utility {
+  margin-bottom: 40px;
 }
+
+//NEXT & PREVIOUS LINKS
+p.nav-next, p.nav-previous {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: $fontFam;
+  font-weight: 400;
+  a {
+     color: $lightgrey;
+     transition: $hoverTrans;
+     &:hover {
+      color: $orange;
+     }
+  }
+}
+
+////////////////////////////////// C O M M E N T S ////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////
+
+#comments.comments-area {
+  clear: both;
+  font-family: $fontFam;
+
+  h2.comments-title {
+    text-transform: uppercase;
+    color: $darkgrey;
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin: 20px 0;
+  }
+
+  ol.comment-list {
+    list-style-type: none;
+    padding-left: 0;
+  }
+
+  img.avatar {
+    margin-bottom: 0;
+  }
+
+  .comment-author.vcard {
+    margin-bottom: 10px;
+  }
+}
+
+#comments .comment-metadata {
+  time {
+    text-transform: uppercase;
+    margin-right: 10px;
+  }
+  .comment-edit-link {
+    text-transform: uppercase;
+  }
+}
+
+#comments .comment-metadata a {
+  transition: $hoverTrans;
+  &:hover {
+    color: $orange;
+  }
+}
+
+#comments .comment-body  {
+  p:last-child {
+    margin: 15px 0 15px 0;
+  }
+
+  .reply {
+    text-transform: uppercase;
+    a {
+      transition: $hoverTrans;
+      &:hover {
+        color: $orange;
+      }
+    }
+  }
+
+}
+
+ol.children {
+  list-style-type: none;
+}
+
+//RESPOND AREA
+
+h3#reply-title {
+  margin: 20px 0 10px 0;
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+#respond.comment-respond {
+  .form-submit input {
+    text-transform: uppercase;
+    margin-top: 10px;
+    border: 1px solid $lightgrey;
+    text-align: center;
+    color: $lightgrey;
+    padding: 11px 20px;
+    font-family: $fontFam;
+    font-weight: 300;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: #fff;
+    transition: $hoverTrans;
+    &:hover {
+      background-color: $darkgrey;
+      border: 1px solid $darkgrey;
+    }
+  }
+  
+  p.logged-in-as {
+    margin-bottom: 10px;
+    a {
+      color: $orange;
+    }
+  }
+  
+  label {
+    // position: absolute;
+    // text-indent: -9999em;
+  }
+  textarea#comment {
+    font-weight: 300;
+    font-family: $fontFam;
+    padding: 10px;
+    margin-bottom: 5px;
+    &:focus {
+      outline: none;
+    }
+  }
+  input {
+    font-weight: 300;
+    padding: 5px;
+    :focus {
+      outline:none;
+    }
+  }
+}
+
+
+////////////////////////////////// C A T E G O R Y  P A G E ///////////////////////
+//////////////////////////////////////////////////////////////////////////////////
+
+div.content.categoryPage  {
+  h1 {
+    text-transform: uppercase;
+    margin: 0 0 20px 0;
+    font-weight: 400;
+    letter-spacing: 1px;
+    font-family: $fontFam;
+  }
+}
+
+
+
 
 ////////////////////////////////// F O O T E R ///////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////
@@ -248,9 +621,15 @@ article {
 .bottom {
   clear:both;
   padding: 20px 0;
-  text-align: center;
 }
 
 p.copyright {
-  text-align: center;
+  text-transform: uppercase;
+  color: $lightgrey;
+  letter-spacing: 1px;
+  font-family: $fontFam;
+  font-weight: 300;
+  font-size: 1.2rem;
+  display: inline-block;
 }
+
